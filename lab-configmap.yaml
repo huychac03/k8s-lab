@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: lab-nginx-configmap
+data:
+  THE_NAME: huychac03
+  AGE: '20'
+  PASS: '123456'

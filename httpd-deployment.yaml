@@ -1,0 +1,27 @@
+# Create 1 pod with nginx:alpine image and 1 pod with httpd image and assign same labels to them
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: httpdfa
+  labels:
+    app: httpd000
+    lab: nginxhttpd
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: httpd000
+      lab: nginxhttpd
+  template:
+    metadata: 
+      labels: 
+       app: httpd000
+       lab: nginxhttpd
+    spec:
+      containers:
+      - name: httpd-container
+        image: httpd
+        ports:
+        - containerPort: 80
+        
+

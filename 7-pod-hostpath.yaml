@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hostpath-pod
+  # labels:
+  #   name: myapp
+spec:
+  containers:
+  - name: my-container
+    image: nginx
+    # resources:
+    #   limits:
+    #     memory: "128Mi"
+    #     cpu: "500m"
+    # ports:
+    #   - containerPort: <Port>
+    volumeMounts: 
+      - name: my-volume
+        mountPath: /var/www/html
+  volumes:
+    - name: my-volume
+      hostPath:
+        path: /tmp/node-data
